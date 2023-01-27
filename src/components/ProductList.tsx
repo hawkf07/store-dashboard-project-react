@@ -16,8 +16,8 @@ const ProductList: FC<Product> = ({
 }) => {
   return (
     <Card>
-      <div className="flex  items-center justify-between  p-1 flex-col md:flex-row">
-        <div className=" flex gap-10 items-center ">
+      <div className="flex  md:items-center justify-between  p-1 gap-3   flex-col md:flex-row">
+        <div className=" flex gap-10 items-center flex-col  md:flex-row">
           <p>{id}</p>
           <img src={thumbnail} className="rounded-lg w-24" alt={title} />
           <div>
@@ -25,7 +25,7 @@ const ProductList: FC<Product> = ({
             <h2 className="font-semibold text-gray-500">{category}</h2>
           </div>
         </div>
-        <div>
+        <div className="flex gap-5 flex-col items-start text-start ">
           <p>Total Sales:</p>
           <h1 className="text-blue-500 font-semibold">{stock}</h1>
         </div>
