@@ -16,10 +16,10 @@ const CustomReport = () => {
             <option selected>Nov 22,2022 - Nov 23,2022</option>
             <option>20-21-23</option>
           </select>
-          <div className="w-full flex text-blue-400 items-center justify-end gap-2">
-            <Icon icon="mdi:download-outline" className="text-blue-400 " />
-            <p>Export Data</p>
-          </div>
+        </div>
+        <div className="w-full flex text-blue-400 items-center justify-end gap-2">
+          <Icon icon="mdi:download-outline" className="text-blue-400 " />
+          <p>Export Data</p>
         </div>
       </Card>
     </section>
