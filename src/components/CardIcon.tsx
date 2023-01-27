@@ -1,16 +1,12 @@
 import { Icon } from "@iconify/react";
+import clsx from "clsx";
 import { FC } from "react";
 type CardIcon = {
-  variant: "green" | "blue";
   icon: string;
 };
-export const CardIcon: FC<CardIcon> = ({ variant, icon }) => {
+export const CardIcon: FC<CardIcon> = ({ icon }) => {
   return (
-    <div
-      className={`p-1 ${
-        "bg-" + variant + "-500"
-      } rounded-xl text-3xl text-gray-100 `}
-    >
+    <div className={`bg-blue-400 p-3 rounded-full text-gray-100 text-2xl`}>
       <Icon icon={icon} />
     </div>
   );

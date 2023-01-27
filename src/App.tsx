@@ -6,11 +6,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="main bg-gray-200 min-h-screen">
+    <div className="main bg-gray-200 min-h-screen w-screen">
       <Navbar />
-      <div className="container flex">
+      <div className="flex w-full ">
         <Sidebar />
-        <MainContent/>
+        <MainContent />
       </div>
     </div>
   );
