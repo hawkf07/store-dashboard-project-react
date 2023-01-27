@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@formkit/auto-animate': 1.0.0-beta.6
   '@iconify/react': ^4.0.1
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
@@ -18,6 +19,7 @@ specifiers:
   vite: ^4.0.0
 
 dependencies:
+  '@formkit/auto-animate': 1.0.0-beta.6
   axios: 1.2.5
   clsx: 1.2.1
   daisyui: 2.49.0_gbtt6ss3tbiz4yjtvdr6fbrj44
@@ -469,6 +471,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@formkit/auto-animate/1.0.0-beta.6:
+    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
+    dev: false
 
   /@iconify/react/4.0.1_react@18.2.0:
     resolution: {integrity: sha512-/DBJqh5K7W4f+d4kpvyJa/OTpVa3GfgrE9bZFAKP0vIWDr0cvVU9MVvbbkek216w9nLQhpJY/FeJtc6izB1PHw==}
