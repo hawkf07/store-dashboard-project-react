@@ -18,3 +18,8 @@ export interface Product {
   thumbnail: string;
   images: string[];
 }
+
+export type SidebarNavItem = {
+  icon: string;
+  title: string;
+};
