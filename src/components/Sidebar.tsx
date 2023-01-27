@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <aside className="p-5 w-1/3">
+    <aside className="p-5 w-1/3 ">
       <nav className="flex flex-col gap-5 p-3  bg-white">
         <li className="flex gap-3 p-3 w-full">
           <div>

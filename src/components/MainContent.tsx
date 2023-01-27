@@ -5,7 +5,7 @@ const MainContent = () => {
   return (
     <main className="w-full">
       <section>
-        <header>
+        <header className="flex justify-between">
           <h1 className="font-semibold text-xl">Report - Top Products</h1>
           <div>
             Home/Report/Top Products
