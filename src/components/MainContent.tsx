@@ -4,8 +4,14 @@ import { Card } from "./Card";
 import { CardIcon } from "./CardIcon";
 import { CustomReport } from "./CustomReportSection";
 import { SearchInput } from "./SearchInput";
+import { useQuery } from "react-query";
+import { fetchAllProduct } from "../api";
+import { ProductList } from "./ProductList";
 
 const MainContent = () => {
+  const { data, error, isLoading } = useQuery("allProducts", fetchAllProduct);
+  console.log(data);
+
   return (
     <main className="w-full p-3 flex flex-col gap-5 ">
       <section className="w-full">
@@ -101,18 +107,31 @@ const MainContent = () => {
         <SearchInput />
         <div className="flex justify-between md:flex-row flex-col text-center mt-5">
           <div>
-            <p>Showing 5 Entries</p>
+            <p>Showing {data?.total ? data?.total / 10 : null} Entries</p>
           </div>
           <div className="flex items-center justify-center gap-5">
             <p>filter : </p>
             <select
               name="filter"
               className="text-blue-400 bg-gray-100 p-3 rounded "
-              id=""
+              id="filter-product-by-value"
             >
               <option value="Ascending">Ascending</option>
-              <option value="Ascending">Descending</option>
+              <option value="Descending">Descending</option>
             </select>
+          </div>
+        </div>
+        <div className="w-full">
+          {data?.products.map((product) => (
+            <ProductList {...product} />
+          ))}
+        </div>
+        <div className="gap-1 flex justify-end">
+          <div className="cursor-pointer px-3 mx-1 p-2 rounded-lg bg-blue-500 text-gray-100">
+            1
+          </div>
+          <div className="cursor-pointer px-3 mx-1 p-2 rounded-lg border boder-gray-500 ">
+            2
           </div>
         </div>
       </section>
