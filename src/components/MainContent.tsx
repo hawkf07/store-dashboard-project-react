@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Card } from "./Card";
 import { CardIcon } from "./CardIcon";
 import { CustomReport } from "./CustomReportSection";
+import { SearchInput } from "./SearchInput";
 
 const MainContent = () => {
   return (
@@ -96,6 +97,23 @@ const MainContent = () => {
           <button className="bg-blue-400 hover:bg-blue-500 p-1 px-3 rounded-xl text-gray-100">
             Top Ratings
           </button>
+        </div>
+        <SearchInput />
+        <div className="flex justify-between md:flex-row flex-col text-center mt-5">
+          <div>
+            <p>Showing 5 Entries</p>
+          </div>
+          <div className="flex items-center justify-center gap-5">
+            <p>filter : </p>
+            <select
+              name="filter"
+              className="text-blue-400 bg-gray-100 p-3 rounded "
+              id=""
+            >
+              <option value="Ascending">Ascending</option>
+              <option value="Ascending">Descending</option>
+            </select>
+          </div>
         </div>
       </section>
     </main>
