@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ProductRoot {
   products: Product[];
   total: number;
@@ -22,4 +24,11 @@ export interface Product {
 export type SidebarNavItem = {
   icon: string;
   title: string;
+  children: ReactNode;
+};
+export type SidebarDropdownContainerType = {
+  children: ReactNode;
+};
+export type SidebarDropdownItemType = {
+  name: string;
 };
