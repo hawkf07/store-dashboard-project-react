@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface ProductRoot {
   products: Product[];
@@ -32,3 +32,12 @@ export type SidebarDropdownContainerType = {
 export type SidebarDropdownItemType = {
   name: string;
 };
+export type PaginationType = {
+  page: number,
+  setPage: Dispatch<SetStateAction<number>>,
+  pageNumber: number,
+}
+export type SearchInputComponent = {
+  setSearchQuery: Dispatch<SetStateAction<string>>,
+  searchQuery: string
+}
