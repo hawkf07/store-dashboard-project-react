@@ -113,4 +113,4 @@ const Sidebar = () => {
   );
 };
 
-export { Sidebar };
+export { Sidebar, SidebarDropdownItem, SidebarDropdownContainer, SidebarNavItem };
