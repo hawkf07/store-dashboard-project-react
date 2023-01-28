@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { FC, useEffect } from "react";
 import { searchProductByQuery } from "../api";
 import { SearchInputComponent } from "../types";
-const SearchInput: FC<SearchInputComponent> = ({ searchQuery, setProduct, setSearchQuery }) => {
+const SearchInput: FC<SearchInputComponent> = ({ searchQuery, setSearchQuery }) => {
   return (
     <div className="mt-5 flex justify-end px-3">
       <div className="relative ">
