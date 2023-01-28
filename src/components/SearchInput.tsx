@@ -1,5 +1,8 @@
 import { Icon } from "@iconify/react";
-const SearchInput = () => {
+import { FC, useEffect } from "react";
+import { searchProductByQuery } from "../api";
+import { SearchInputComponent } from "../types";
+const SearchInput: FC<SearchInputComponent> = ({ searchQuery, setProduct, setSearchQuery }) => {
   return (
     <div className="mt-5 flex justify-end px-3">
       <div className="relative ">
@@ -10,8 +13,13 @@ const SearchInput = () => {
         <input
           type="text"
           className="w-full pl-5 border-gray-300 border rounded-md p-2"
+
           name="q"
           placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value)
+          }}
         />
       </div>
     </div>
