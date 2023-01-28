@@ -5,16 +5,22 @@ import { CardIcon } from "./CardIcon";
 import { CustomReport } from "./CustomReportSection";
 import { SearchInput } from "./SearchInput";
 import { useQuery } from "react-query";
-import { fetchAllProduct } from "../api";
+import { fetchAllProduct, searchProductByQuery, usePagination } from "../api";
 import { ProductList } from "./ProductList";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Pagination } from "./Pagination";
+import { ProductRoot } from "../types";
 
 const MainContent = () => {
-  const { data, error, isLoading } = useQuery("allProducts", fetchAllProduct);
-  console.log(data);
+  const [product, setProduct] = useState<ProductRoot | null>(null)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [page, setPage] = useState(0)
+  const { data, error, isError, isLoading, isPreviousData } = usePagination(page)
+  const SKIP_PAGE_NUMBER = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 
   return (
-    <main className="w-full p-3 flex flex-col gap-5 ">
-      <section className="w-full">
+    <main className="w-full p-3 flex flex-col gap-5   md:mt-0">
+      <section className="w-full mt-12 md:mt-0">
         <header className="flex justify-between p-3 flex-col md:flex-row gap-3">
           <h1 className="font-semibold text-xl">Report - Top Products</h1>
           <div>Home/Report/Top Products</div>
@@ -93,10 +99,10 @@ const MainContent = () => {
       </section>
       <CustomReport />
       <section className="p-3 bg-gray-100 rounded-md">
-        <header>
+        <header className="p-3 text-xl text-gray-600 font-bold">
           <h1>List Of Top Product Sales</h1>
         </header>
-        <div className="flex gap-3">
+        <div className="flex gap-3 px-3 font-semibold">
           <button className="hover:bg-blue-500 bg-blue-400 p-1 px-3 rounded-xl text-gray-100">
             Top Sales
           </button>
@@ -104,7 +110,7 @@ const MainContent = () => {
             Top Ratings
           </button>
         </div>
-        <SearchInput />
+        <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div className="flex justify-between md:flex-row flex-col text-center mt-5">
           <div>
             <p>Showing {data?.total ? data?.total / 10 : null} Entries</p>
@@ -122,20 +128,16 @@ const MainContent = () => {
           </div>
         </div>
         <div className="w-full">
-          {data?.products.map((product) => (
-            <ProductList {...product} />
+          {isLoading ? "Loading ..." : isError ? "Error " + error : data?.products.map((product) => (
+            <>
+              <ProductList {...product} />
+            </>
           ))}
         </div>
-        <div className="gap-1 flex justify-end">
-          <div className="cursor-pointer px-3 mx-1 p-2 rounded-lg bg-blue-500 text-gray-100">
-            1
-          </div>
-          <div className="cursor-pointer px-3 mx-1 p-2 rounded-lg border boder-gray-500 ">
-            2
-          </div>
+        <div className="gap-1 flex justify-end flex-wrap items-center">
+          {SKIP_PAGE_NUMBER.map((pageNumber) => <Pagination pageNumber={pageNumber} page={page} setPage={setPage} />)}
         </div>
-      </section>
-    </main>
+      </section>    </main>
   );
 };
 

@@ -47,9 +47,8 @@ const Navbar = () => {
   }, [drawerIsOpen])
   return (
     <>
-      <nav className="bg-white min-h-[8vh] p-5">
+      <nav className="bg-white min-h-[8vh] p-5  w-full z-20 fixed md:static">
         <div>
-
           <div className="flex justify-between items-center">
             <div className="flex gap-5 justify-around">
               <button className="block md:hidden cursor-pointer" onClick={sidebarHandler}>
@@ -66,8 +65,8 @@ const Navbar = () => {
               </header>
             </div>
 
-            <div className="relative text-center w-32" ref={navbarDropdownRef}>
-              <div onClick={navbarDropdownHandler} className="rounded-full w-8 mx-auto bg-gray-500 p-1 " id="avatar-navbar">
+            <div className="relative text-center w-32 " ref={navbarDropdownRef}>
+              <div onClick={navbarDropdownHandler} className="cursor-pointer rounded-full md:hidden block w-8 mx-auto bg-gray-500 p-1 " id="avatar-navbar">
                 <Icon icon={"mdi:user"} className="text-2xl text-white" />
               </div>
               {navbarDropdownIsOpen && <div className="absolute text-gray-700 z-20 mt-2 w-32 bg-gray-100 shadow-md left-0 p-1 rounded-md">
